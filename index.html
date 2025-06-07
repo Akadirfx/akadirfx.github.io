@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fikrazen - From AI Concept to Reality</title>
+    <title>Fikrazen - Transform AI Concepts into Reality</title>
+    <meta name="description" content="Professional engineering services to turn your AI-generated concepts into manufacturable products">
     <style>
         :root {
             --primary: #2c3e50;
@@ -12,431 +13,904 @@
             --light: #ecf0f1;
             --dark: #2c3e50;
             --gray: #95a5a6;
+            --bg: #f9f9f9;
+            --card-bg: #ffffff;
         }
-        
+
+        /* Dark mode variables */
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --primary: #ecf0f1;
+                --secondary: #3498db;
+                --accent: #e74c3c;
+                --light: #2c3e50;
+                --dark: #ecf0f1;
+                --gray: #bdc3c7;
+                --bg: #1a252f;
+                --card-bg: #2c3e50;
+            }
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
-        
+
         body {
             line-height: 1.6;
             color: var(--dark);
-            background-color: #f9f9f9;
+            background-color: var(--bg);
+            transition: background-color 0.3s, color 0.3s;
         }
-        
+
+        /* Header & Navigation */
         header {
-            background-color: white;
+            background-color: var(--card-bg);
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
+            transition: all 0.3s;
         }
-        
+
+        .header-scrolled {
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
         nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 1rem 5%;
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
         }
-        
+
         .logo {
             font-size: 1.8rem;
             font-weight: 700;
             color: var(--primary);
+            text-decoration: none;
         }
-        
+
         .logo span {
             color: var(--accent);
         }
-        
+
         .nav-links {
             display: flex;
             list-style: none;
+            gap: 2rem;
         }
-        
-        .nav-links li {
-            margin-left: 2rem;
-        }
-        
+
         .nav-links a {
             text-decoration: none;
             color: var(--dark);
             font-weight: 500;
             transition: color 0.3s;
+            position: relative;
         }
-        
-        .nav-links a:hover {
-            color: var(--secondary);
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--secondary);
+            transition: width 0.3s;
         }
-        
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 30px;
+            height: 21px;
+            z-index: 1001;
+        }
+
+        .mobile-menu-toggle span {
+            display: block;
+            height: 3px;
+            width: 100%;
+            background-color: var(--primary);
+            transition: all 0.3s;
+        }
+
+        /* Hero Section */
         .hero {
-            height: 100vh;
+            min-height: 100vh;
             display: flex;
             align-items: center;
-            padding: 0 5%;
+            padding: 6rem 5% 4rem;
             background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            margin-top: 80px;
         }
-        
+
         .hero-content {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 2rem;
+            gap: 3rem;
             align-items: center;
         }
-        
+
         .hero-text h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
             color: var(--primary);
+            line-height: 1.2;
         }
-        
+
         .hero-text h1 span {
             color: var(--accent);
+            display: inline-block;
+            animation: fadeInUp 1s ease-out forwards;
         }
-        
+
         .hero-text p {
             font-size: 1.2rem;
-            margin-bottom: 2rem;
+            margin-bottom: 2.5rem;
             color: var(--dark);
+            max-width: 600px;
         }
-        
+
+        .cta-container {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
         .cta-button {
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
             background-color: var(--accent);
             color: white;
-            padding: 0.8rem 1.5rem;
+            padding: 0.9rem 2rem;
             border-radius: 30px;
             text-decoration: none;
             font-weight: 600;
-            transition: background-color 0.3s, transform 0.3s;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
         }
-        
+
+        .cta-button.secondary {
+            background-color: transparent;
+            color: var(--secondary);
+            border: 2px solid var(--secondary);
+        }
+
         .cta-button:hover {
-            background-color: #c0392b;
             transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
         }
-        
+
+        .cta-button::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 5px;
+            height: 5px;
+            background: rgba(255,255,255,0.5);
+            opacity: 0;
+            border-radius: 100%;
+            transform: scale(1, 1) translate(-50%);
+            transform-origin: 50% 50%;
+        }
+
+        .cta-button:hover::after {
+            animation: ripple 1s ease-out;
+        }
+
         .ai-tools {
-            background-color: white;
-            padding: 1.5rem;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            background-color: var(--card-bg);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s;
         }
-        
+
+        .ai-tools:hover {
+            transform: translateY(-5px);
+        }
+
         .ai-tools h3 {
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
             color: var(--primary);
+            font-size: 1.5rem;
         }
-        
+
         .tool-link {
-            display: block;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
             background-color: var(--light);
-            padding: 0.8rem;
-            margin-bottom: 0.5rem;
-            border-radius: 5px;
+            padding: 1rem;
+            margin-bottom: 0.8rem;
+            border-radius: 8px;
             text-decoration: none;
             color: var(--dark);
             font-weight: 500;
-            transition: background-color 0.3s;
+            transition: all 0.3s;
         }
-        
+
         .tool-link:hover {
-            background-color: #dfe6e9;
+            background-color: var(--secondary);
+            color: white;
+            transform: translateX(5px);
         }
-        
+
+        /* Sections */
         section {
-            padding: 5rem 5%;
-            max-width: 1200px;
+            padding: 6rem 5%;
+            max-width: 1400px;
             margin: 0 auto;
         }
-        
+
         .section-title {
             text-align: center;
-            margin-bottom: 3rem;
+            margin-bottom: 4rem;
         }
-        
+
         .section-title h2 {
-            font-size: 2.5rem;
+            font-size: 2.8rem;
             color: var(--primary);
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            display: inline-block;
         }
-        
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: var(--accent);
+            border-radius: 2px;
+        }
+
         .section-title p {
             color: var(--gray);
             max-width: 700px;
             margin: 0 auto;
+            font-size: 1.1rem;
         }
-        
+
+        /* Services Grid */
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
         }
-        
+
         .service-card {
-            background-color: white;
-            border-radius: 10px;
+            background-color: var(--card-bg);
+            border-radius: 15px;
             overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+            position: relative;
         }
-        
+
         .service-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
         }
-        
+
+        .service-card::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--secondary);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .service-card:hover::after {
+            transform: scaleX(1);
+        }
+
         .service-img {
-            height: 200px;
+            height: 220px;
             background-color: var(--light);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 3rem;
+            font-size: 4rem;
             color: var(--secondary);
         }
-        
+
         .service-content {
-            padding: 1.5rem;
+            padding: 2rem;
         }
-        
+
         .service-content h3 {
             margin-bottom: 1rem;
             color: var(--primary);
+            font-size: 1.5rem;
         }
-        
+
         .service-content p {
             color: var(--gray);
             margin-bottom: 1.5rem;
         }
-        
+
+        .service-meta {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 1.5rem;
+            font-size: 0.9rem;
+        }
+
+        .price {
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        .duration {
+            color: var(--gray);
+        }
+
         .learn-more {
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
             color: var(--secondary);
             font-weight: 600;
             text-decoration: none;
-            transition: color 0.3s;
+            transition: all 0.3s;
         }
-        
+
         .learn-more:hover {
-            color: #2980b9;
+            gap: 1rem;
         }
-        
+
+        /* Process Steps */
         .process-steps {
             display: flex;
             flex-direction: column;
-            gap: 2rem;
-            max-width: 800px;
+            gap: 2.5rem;
+            max-width: 900px;
             margin: 0 auto;
+            position: relative;
         }
-        
+
+        .process-steps::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 20px;
+            height: 100%;
+            width: 4px;
+            background-color: var(--secondary);
+            z-index: 1;
+        }
+
         .step {
             display: flex;
-            gap: 1.5rem;
+            gap: 2rem;
+            position: relative;
+            z-index: 2;
         }
-        
+
         .step-number {
             background-color: var(--secondary);
             color: white;
-            width: 40px;
-            height: 40px;
+            width: 44px;
+            height: 44px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             font-weight: 700;
             flex-shrink: 0;
+            font-size: 1.2rem;
+            box-shadow: 0 0 0 6px var(--bg);
         }
-        
+
+        .step-content {
+            background-color: var(--card-bg);
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            flex-grow: 1;
+        }
+
         .step-content h3 {
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.8rem;
             color: var(--primary);
+            font-size: 1.3rem;
         }
-        
+
         .step-content p {
             color: var(--gray);
         }
-        
+
+        /* Contact Form */
         .contact-form {
-            background-color: white;
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            max-width: 800px;
+            background-color: var(--card-bg);
+            padding: 3rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            max-width: 900px;
             margin: 0 auto;
         }
-        
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
         .form-group {
             margin-bottom: 1.5rem;
         }
-        
+
+        .form-group.full-width {
+            grid-column: span 2;
+        }
+
         .form-group label {
             display: block;
             margin-bottom: 0.5rem;
             font-weight: 500;
             color: var(--primary);
         }
-        
+
         .form-group input,
         .form-group textarea,
         .form-group select {
             width: 100%;
-            padding: 0.8rem;
+            padding: 1rem;
             border: 1px solid #ddd;
-            border-radius: 5px;
+            border-radius: 8px;
             font-size: 1rem;
+            background-color: var(--bg);
+            color: var(--dark);
+            transition: all 0.3s;
         }
-        
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--secondary);
+            box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+        }
+
         .form-group textarea {
-            min-height: 150px;
+            min-height: 180px;
             resize: vertical;
         }
-        
+
         .form-group small {
             display: block;
-            margin-top: 0.3rem;
+            margin-top: 0.5rem;
             color: var(--gray);
             font-size: 0.8rem;
         }
-        
+
+        .file-upload-wrapper {
+            border: 2px dashed #ddd;
+            padding: 2rem;
+            text-align: center;
+            border-radius: 8px;
+            transition: all 0.3s;
+        }
+
+        .file-upload-wrapper:hover {
+            border-color: var(--secondary);
+        }
+
+        .file-upload-label {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            cursor: pointer;
+            color: var(--gray);
+        }
+
+        .file-upload-label svg {
+            width: 48px;
+            height: 48px;
+            margin-bottom: 1rem;
+            fill: var(--secondary);
+        }
+
+        .file-upload-preview {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .file-preview-item {
+            background: var(--light);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .remove-file {
+            background: none;
+            border: none;
+            color: var(--accent);
+            cursor: pointer;
+            font-weight: bold;
+        }
+
         .submit-btn {
             background-color: var(--accent);
             color: white;
             border: none;
-            padding: 1rem 2rem;
-            border-radius: 5px;
-            font-size: 1rem;
+            padding: 1.2rem;
+            border-radius: 8px;
+            font-size: 1.1rem;
             font-weight: 600;
             cursor: pointer;
-            transition: background-color 0.3s;
+            transition: all 0.3s;
             width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.8rem;
         }
-        
+
         .submit-btn:hover {
             background-color: #c0392b;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
         }
-        
+
         #form-status {
             margin-bottom: 1.5rem;
         }
-        
+
         .success-message {
-            background-color: #2ecc71;
+            background-color: #27ae60;
             color: white;
             padding: 1rem;
-            border-radius: 5px;
+            border-radius: 8px;
+            text-align: center;
         }
-        
+
         .error-message {
             background-color: #e74c3c;
             color: white;
             padding: 1rem;
-            border-radius: 5px;
+            border-radius: 8px;
+            text-align: center;
         }
-        
+
+        /* Footer */
         footer {
             background-color: var(--primary);
             color: white;
-            padding: 3rem 5%;
-            text-align: center;
+            padding: 4rem 5% 2rem;
         }
-        
+
         .footer-content {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
         }
-        
-        .footer-links {
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-about {
             display: flex;
-            justify-content: center;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .footer-logo {
+            font-size: 2rem;
+            font-weight: 700;
+            color: white;
+            text-decoration: none;
+        }
+
+        .footer-logo span {
+            color: var(--secondary);
+        }
+
+        .footer-about p {
+            opacity: 0.8;
+            line-height: 1.7;
+        }
+
+        .footer-links h3,
+        .footer-social h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+
+        .footer-links h3::after,
+        .footer-social h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background-color: var(--secondary);
+        }
+
+        .footer-links ul {
             list-style: none;
-            margin: 1.5rem 0;
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
         }
-        
-        .footer-links li {
-            margin: 0 1rem;
-        }
-        
+
         .footer-links a {
             color: white;
             text-decoration: none;
-            transition: color 0.3s;
+            opacity: 0.8;
+            transition: all 0.3s;
+            display: inline-block;
         }
-        
+
         .footer-links a:hover {
+            opacity: 1;
+            transform: translateX(5px);
             color: var(--secondary);
         }
-        
-        .copyright {
-            color: rgba(255,255,255,0.7);
+
+        .social-icons {
+            display: flex;
+            gap: 1.5rem;
             margin-top: 1.5rem;
         }
-        
+
+        .social-icons a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            color: white;
+            font-size: 1.2rem;
+            transition: all 0.3s;
+        }
+
+        .social-icons a:hover {
+            background-color: var(--secondary);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            margin-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            opacity: 0.7;
+            font-size: 0.9rem;
+        }
+
+        /* Scroll Progress */
+        .scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 4px;
+            background: var(--secondary);
+            width: 0%;
+            z-index: 1001;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes ripple {
+            0% {
+                transform: scale(0, 0);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(20, 20);
+                opacity: 0;
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .hero-text h1 {
+                font-size: 3rem;
+            }
+        }
+
         @media (max-width: 768px) {
             .hero-content {
                 grid-template-columns: 1fr;
                 text-align: center;
+                gap: 2rem;
             }
-            
+
+            .hero-text {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .hero-text p {
+                text-align: center;
+            }
+
+            .cta-container {
+                justify-content: center;
+            }
+
             .nav-links {
-                display: none;
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 80%;
+                max-width: 400px;
+                height: 100vh;
+                background-color: var(--card-bg);
+                flex-direction: column;
+                padding: 6rem 2rem 2rem;
+                transition: right 0.3s ease;
+                box-shadow: -5px 0 15px rgba(0,0,0,0.1);
             }
-            
+
+            .nav-links.active {
+                right: 0;
+            }
+
+            .mobile-menu-toggle {
+                display: flex;
+            }
+
+            .mobile-menu-toggle.active span:nth-child(1) {
+                transform: translateY(9px) rotate(45deg);
+            }
+
+            .mobile-menu-toggle.active span:nth-child(2) {
+                opacity: 0;
+            }
+
+            .mobile-menu-toggle.active span:nth-child(3) {
+                transform: translateY(-9px) rotate(-45deg);
+            }
+
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .form-group.full-width {
+                grid-column: span 1;
+            }
+        }
+
+        @media (max-width: 576px) {
             .hero-text h1 {
                 font-size: 2.5rem;
             }
-            
+
             .section-title h2 {
-                font-size: 2rem;
+                font-size: 2.2rem;
+            }
+
+            .service-card {
+                min-width: 100%;
+            }
+
+            .cta-container {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .cta-button {
+                width: 100%;
+                text-align: center;
             }
         }
     </style>
 </head>
 <body>
-    <header>
+    <!-- Scroll Progress Indicator -->
+    <div class="scroll-progress"></div>
+
+    <!-- Header -->
+    <header id="header">
         <nav>
-            <div class="logo">Fikra<span>Zen</span></div>
+            <a href="#" class="logo">Fikra<span>Zen</span></a>
             <ul class="nav-links">
                 <li><a href="#services">Services</a></li>
                 <li><a href="#process">Process</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
+            <button class="mobile-menu-toggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </nav>
     </header>
-    
+
+    <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
             <div class="hero-text">
-                <h1>Your Idea, AI Perfected<span>Now Let’s Build It</span></h1>
-                <p>"Democratizing Innovation: From Concept to Reality
-
-Transform your ideas into tangible products through AI-powered design and expert engineering. Our platform bridges imagination and execution, making professional product development accessible to all.
-
-Start with AI visualization, then let us handle the technical realization. Together, we turn visions into viable prototypes - efficiently, affordably, and without barriers.".</p>
-                <a href="#contact" class="cta-button">Get Your Concept Reviewed</a>
+                <h1>Transform AI Concepts <span>Into Manufacturable Products</span></h1>
+                <p>Bridge the gap between AI-generated ideas and physical reality with our expert engineering services. We validate, refine, and prepare your concepts for production.</p>
+                <div class="cta-container">
+                    <a href="#contact" class="cta-button">Get Your Concept Reviewed</a>
+                    <a href="#process" class="cta-button secondary">How It Works →</a>
+                </div>
             </div>
             <div class="ai-tools">
                 <h3>Start with these AI tools:</h3>
-                <a href="https://chat.openai.com/" target="_blank" class="tool-link">ChatGPT - Develop your initial concept</a>
-                <a href="https://www.deepseek.com/" target="_blank" class="tool-link">DeepSeek - Explore technical possibilities</a>
-                <p style="margin-top: 1rem; font-size: 0.9rem;">When you're ready, upload your concept below for professional engineering review.</p>
+                <a href="https://chat.openai.com/" target="_blank" class="tool-link">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M4 20L12 4L20 20M12 16V17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    ChatGPT - Develop your concept
+                </a>
+                <a href="https://www.deepseek.com/" target="_blank" class="tool-link">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M8 14C8 14 9.5 16 12 16C14.5 16 16 14 16 14M9 9H9.01M15 9H15.01" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    DeepSeek - Technical exploration
+                </a>
+                <p style="margin-top: 1.5rem; font-size: 0.95rem; color: var(--gray);">
+                    When ready, submit your concept below for professional engineering review.
+                </p>
             </div>
         </div>
     </section>
-    
+
+    <!-- Services Section -->
     <section id="services" class="services">
         <div class="section-title">
             <h2>Our Engineering Services</h2>
-            <p>After developing your concept with AI, we provide the critical engineering expertise to make it reality</p>
+            <p>From concept validation to production preparation - we cover all stages of product development</p>
         </div>
         <div class="services-grid">
             <div class="service-card">
@@ -444,15 +918,23 @@ Start with AI visualization, then let us handle the technical realization. Toget
                 <div class="service-content">
                     <h3>Concept Verification</h3>
                     <p>Professional review of your AI-generated concept to identify potential issues and improvements before prototyping.</p>
-                    <a href="#contact" class="learn-more">Get Started →</a>
+                    <div class="service-meta">
+                        <span class="price">From $299</span>
+                        <span class="duration">2-3 days</span>
+                    </div>
+                    <a href="#contact" class="learn-more">Get Started <span>→</span></a>
                 </div>
             </div>
             <div class="service-card">
                 <div class="service-img">✏️</div>
                 <div class="service-content">
-                    <h3>2D Technical Drawings</h3>
+                    <h3>Technical Drawings</h3>
                     <p>Precision engineering drawings for manufacturing with all necessary dimensions and tolerances.</p>
-                    <a href="#contact" class="learn-more">Get Started →</a>
+                    <div class="service-meta">
+                        <span class="price">From $499</span>
+                        <span class="duration">3-5 days</span>
+                    </div>
+                    <a href="#contact" class="learn-more">Get Started <span>→</span></a>
                 </div>
             </div>
             <div class="service-card">
@@ -460,7 +942,11 @@ Start with AI visualization, then let us handle the technical realization. Toget
                 <div class="service-content">
                     <h3>FEM Simulation</h3>
                     <p>Finite Element Analysis to test your design's strength, durability and performance under various conditions.</p>
-                    <a href="#contact" class="learn-more">Get Started →</a>
+                    <div class="service-meta">
+                        <span class="price">From $799</span>
+                        <span class="duration">5-7 days</span>
+                    </div>
+                    <a href="#contact" class="learn-more">Get Started <span>→</span></a>
                 </div>
             </div>
             <div class="service-card">
@@ -468,7 +954,11 @@ Start with AI visualization, then let us handle the technical realization. Toget
                 <div class="service-content">
                     <h3>Prototype Development</h3>
                     <p>Turn your verified concept into a physical prototype with our manufacturing connections.</p>
-                    <a href="#contact" class="learn-more">Get Started →</a>
+                    <div class="service-meta">
+                        <span class="price">Custom Quote</span>
+                        <span class="duration">2-4 weeks</span>
+                    </div>
+                    <a href="#contact" class="learn-more">Get Started <span>→</span></a>
                 </div>
             </div>
             <div class="service-card">
@@ -476,7 +966,11 @@ Start with AI visualization, then let us handle the technical realization. Toget
                 <div class="service-content">
                     <h3>Patent Assistance</h3>
                     <p>Guidance through the patent process to protect your innovative product idea.</p>
-                    <a href="#contact" class="learn-more">Get Started →</a>
+                    <div class="service-meta">
+                        <span class="price">From $999</span>
+                        <span class="duration">Varies</span>
+                    </div>
+                    <a href="#contact" class="learn-more">Get Started <span>→</span></a>
                 </div>
             </div>
             <div class="service-card">
@@ -484,129 +978,269 @@ Start with AI visualization, then let us handle the technical realization. Toget
                 <div class="service-content">
                     <h3>Production Preparation</h3>
                     <p>Prepare your design for mass production with DFM (Design for Manufacturing) analysis.</p>
-                    <a href="#contact" class="learn-more">Get Started →</a>
+                    <div class="service-meta">
+                        <span class="price">From $599</span>
+                        <span class="duration">1-2 weeks</span>
+                    </div>
+                    <a href="#contact" class="learn-more">Get Started <span>→</span></a>
                 </div>
             </div>
         </div>
     </section>
-    
+
+    <!-- Process Section -->
     <section id="process" class="process">
         <div class="section-title">
-            <h2>How It Works</h2>
-            <p>Our streamlined process bridges the gap between AI concepts and real-world products</p>
+            <h2>Our Streamlined Process</h2>
+            <p>From AI concept to physical product in 5 simple steps</p>
         </div>
         <div class="process-steps">
             <div class="step">
                 <div class="step-number">1</div>
                 <div class="step-content">
-                    <h3>Develop Your Concept with AI</h3>
-                    <p>Use ChatGPT, DeepSeek or other AI tools to flesh out your initial product idea. These tools can help with brainstorming, technical questions, and initial design concepts.</p>
+                    <h3>AI Concept Development</h3>
+                    <p>Use AI tools to brainstorm and develop your initial product idea. We recommend ChatGPT for general concepts and DeepSeek for technical exploration.</p>
                 </div>
             </div>
             <div class="step">
                 <div class="step-number">2</div>
                 <div class="step-content">
-                    <h3>Submit Your Concept</h3>
-                    <p>Upload your AI-generated concept, sketches, or descriptions through our form. Include as much detail as possible about your vision and requirements.</p>
+                    <h3>Concept Submission</h3>
+                    <p>Upload your AI-generated concept through our secure form. Include sketches, descriptions, and any specific requirements you have.</p>
                 </div>
             </div>
             <div class="step">
                 <div class="step-number">3</div>
                 <div class="step-content">
                     <h3>Engineering Review</h3>
-                    <p>We analyze your concept for feasibility, identify potential issues, and suggest improvements. You'll receive a detailed report with recommendations.</p>
+                    <p>Our experts analyze your concept for manufacturability, identify potential issues, and suggest improvements. You'll receive a detailed report.</p>
                 </div>
             </div>
             <div class="step">
                 <div class="step-number">4</div>
                 <div class="step-content">
-                    <h3>Refinement & Development</h3>
-                    <p>Based on the review, we work with you to refine the design, create technical drawings, run simulations, or develop prototypes as needed.</p>
+                    <h3>Design Refinement</h3>
+                    <p>We work with you to refine the design, create technical documentation, run simulations, and prepare for prototyping.</p>
                 </div>
             </div>
             <div class="step">
                 <div class="step-number">5</div>
                 <div class="step-content">
-                    <h3>Finalize & Protect</h3>
-                    <p>Prepare your product for manufacturing and get assistance with patent applications to protect your intellectual property.</p>
+                    <h3>Production & Protection</h3>
+                    <p>Finalize your product for manufacturing and get assistance with intellectual property protection if needed.</p>
                 </div>
             </div>
         </div>
     </section>
-    
+
+    <!-- Contact Section -->
     <section id="contact" class="contact">
         <div class="section-title">
             <h2>Submit Your Concept</h2>
-            <p>Upload your AI-developed concept for professional engineering review and refinement</p>
+            <p>Get professional engineering feedback on your AI-generated concept</p>
         </div>
         <form class="contact-form" action="https://formsubmit.co/abdifx@protonmail.com" method="POST" enctype="multipart/form-data" id="engineering-form">
             <input type="hidden" name="_subject" value="New Concept Submission from Fikrazen">
             <input type="hidden" name="_autoresponse" value="Thank you for submitting your concept to Fikrazen! We'll review your submission and get back to you within 2 business days.">
             <input type="hidden" name="_template" value="box">
             
-            <div class="form-group">
-                <label for="name">Your Name</label>
-                <input type="text" id="name" name="name" required>
+            <div class="form-grid">
+                <div class="form-group">
+                    <label for="name">Your Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="project">Project Name</label>
+                    <input type="text" id="project" name="project" required>
+                </div>
+                <div class="form-group">
+                    <label for="budget">Estimated Budget</label>
+                    <select id="budget" name="budget">
+                        <option value="" disabled selected>Select range</option>
+                        <option value="500-1000">$500-$1,000</option>
+                        <option value="1000-5000">$1,000-$5,000</option>
+                        <option value="5000+">$5,000+</option>
+                        <option value="unsure">Not sure yet</option>
+                    </select>
+                </div>
+                <div class="form-group full-width">
+                    <label for="description">Concept Description</label>
+                    <textarea id="description" name="description" placeholder="Describe your product concept, intended use, materials, and any special requirements..." required></textarea>
+                </div>
+                <div class="form-group full-width">
+                    <label for="services">Services Needed</label>
+                    <select id="services" name="services[]" multiple>
+                        <option value="concept-review">Concept Review & Verification</option>
+                        <option value="technical-drawings">2D/3D Technical Drawings</option>
+                        <option value="fem-analysis">FEM Analysis</option>
+                        <option value="prototyping">Prototype Development</option>
+                        <option value="patent-help">Patent Assistance</option>
+                        <option value="production-prep">Production Preparation</option>
+                        <option value="other">Other (describe in message)</option>
+                    </select>
+                    <small>Hold Ctrl/Cmd to select multiple options</small>
+                </div>
+                <div class="form-group full-width">
+                    <div class="file-upload-wrapper">
+                        <label for="files" class="file-upload-label">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M7 16C4.79086 16 3 14.2091 3 12C3 10.0922 4.33457 8.49763 6.12071 8.09695C6.04169 7.74395 6 7.37684 6 7C6 3.68629 8.68629 1 12 1C15.3137 1 18 3.68629 18 7C18 7.37684 17.9583 7.74395 17.8793 8.09695C19.6654 8.49763 21 10.0922 21 12C21 14.2091 19.2091 16 17 16M12 11V21M12 21L8 17M12 21L16 17" stroke="var(--secondary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            <span>Drag & drop files or click to browse</span>
+                            <input type="file" id="files" name="attachment" accept=".pdf,.jpg,.jpeg,.png,.gif,.doc,.docx,.stl,.step,.iges" multiple>
+                        </label>
+                        <div class="file-upload-preview"></div>
+                    </div>
+                    <small>Max 20MB total (PDF, JPG, PNG, STL, STEP, etc.)</small>
+                </div>
             </div>
-            <div class="form-group">
-                <label for="email">Email Address</label>
-                <input type="email" id="email" name="email" required>
-            </div>
-            <div class="form-group">
-                <label for="project">Project Name</label>
-                <input type="text" id="project" name="project" required>
-            </div>
-            <div class="form-group">
-                <label for="description">Concept Description</label>
-                <textarea id="description" name="description" required></textarea>
-            </div>
-            <div class="form-group">
-                <label for="services">Services Needed</label>
-                <select id="services" name="services[]" multiple>
-                    <option value="concept-review">Concept Review & Verification</option>
-                    <option value="technical-drawings">2D Technical Drawings</option>
-                    <option value="fem-analysis">FEM Analysis</option>
-                    <option value="prototyping">Prototype Development</option>
-                    <option value="patent-help">Patent Assistance</option>
-                    <option value="other">Other (describe in message)</option>
-                </select>
-                <small>Hold Ctrl/Cmd to select multiple options</small>
-            </div>
-            <div class="form-group">
-                <label for="files">Upload Concept Files (Sketches, AI Output, etc.)</label>
-                <input type="file" id="files" name="attachment" accept=".pdf,.jpg,.jpeg,.png,.gif,.doc,.docx">
-                <small>Max 20MB total (PDF, JPG, PNG, GIF, DOC)</small>
-            </div>
+            
             <div id="form-status"></div>
-            <button type="submit" class="submit-btn">Submit for Engineering Review</button>
+            <button type="submit" class="submit-btn">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M22 2L11 13M22 2L15 22L11 13L2 9L22 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                Submit for Engineering Review
+            </button>
         </form>
     </section>
-    
+
+    <!-- Footer -->
     <footer>
         <div class="footer-content">
-            <div class="logo" style="color: white;">fikra<span style="color: var(--secondary);">zen</span></div>
-            <ul class="footer-links">
-                <li><a href="#services">Services</a></li>
-                <li><a href="#process">Process</a></li>
-                <li><a href="#contact">Contact</a></li>
-                <li><a href="#">Privacy Policy</a></li>
-            </ul>
-            <p class="copyright">© 2023 Fikrazen. All rights reserved. Bridging AI concepts with engineering reality.</p>
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <a href="#" class="footer-logo">fikra<span>zen</span></a>
+                    <p>Bridging the gap between AI concepts and engineering reality. We help innovators transform ideas into manufacturable products.</p>
+                </div>
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#process">Process</a></li>
+                        <li><a href="#contact">Submit Concept</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-social">
+                    <h3>Connect With Us</h3>
+                    <div class="social-icons">
+                        <a href="#" aria-label="Twitter">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M23 3C22.0424 3.67548 20.9821 4.19211 19.86 4.53C19.2577 3.83751 18.4573 3.34669 17.567 3.12393C16.6767 2.90116 15.7395 2.9572 14.8821 3.28445C14.0247 3.61171 13.2884 4.1944 12.773 4.95372C12.2575 5.71303 11.9877 6.61234 12 7.53V8.53C10.2426 8.57557 8.50127 8.18581 6.93101 7.39545C5.36074 6.60508 4.01032 5.43864 3 4C3 4 -1 13 8 17C5.94053 18.398 3.48716 19.0989 1 19C10 24 21 19 21 7.5C20.9991 7.22145 20.9723 6.94359 20.92 6.67C21.9406 5.66349 22.6608 4.39271 23 3V3Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </a>
+                        <a href="#" aria-label="LinkedIn">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M16 8C17.5913 8 19.1174 8.63214 20.2426 9.75736C21.3679 10.8826 22 12.4087 22 14V21H18V14C18 13.4696 17.7893 12.9609 17.4142 12.5858C17.0391 12.2107 16.5304 12 16 12C15.4696 12 14.9609 12.2107 14.5858 12.5858C14.2107 12.9609 14 13.4696 14 14V21H10V14C10 12.4087 10.6321 10.8826 11.7574 9.75736C12.8826 8.63214 14.4087 8 16 8Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M6 9H2V21H6V9Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M4 6C5.10457 6 6 5.10457 6 4C6 2.89543 5.10457 2 4 2C2.89543 2 2 2.89543 2 4C2 5.10457 2.89543 6 4 6Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </a>
+                        <a href="#" aria-label="GitHub">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M14.5 9.5C14.7652 9.13419 15.0453 8.52523 15.0229 7.8C15.0229 6.5 14.5 6 14.5 6C15.5 6 16 7 16 7.5C16 8 16.5 9 17.5 9C18 9 19 8.5 19 7C19 5 17.5 4 15.5 4C13.5 4 12 5 12 6.5C12 8 13 9 14.5 9.5Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M9.5 9.5C9.23481 9.13419 8.9547 8.52523 8.97714 7.8C8.97714 6.5 9.5 6 9.5 6C8.5 6 8 7 8 7.5C8 8 7.5 9 6.5 9C6 9 5 8.5 5 7C5 5 6.5 4 8.5 4C10.5 4 12 5 12 6.5C12 8 11 9 9.5 9.5Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M12 22C9 22 8 19 8 17C8 15 9.5 14 12 14C14.5 14 16 15 16 17C16 19 15 22 12 22Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <p class="copyright">© 2023 Fikrazen. All rights reserved. From AI concept to engineering reality.</p>
         </div>
     </footer>
-    
+
     <script>
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
+        // Mobile Menu Toggle
+        const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+
+        mobileMenuToggle.addEventListener('click', () => {
+            mobileMenuToggle.classList.toggle('active');
+            navLinks.classList.toggle('active');
+            document.body.classList.toggle('no-scroll');
+        });
+
+        // Close menu when clicking a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenuToggle.classList.remove('active');
+                navLinks.classList.remove('active');
+                document.body.classList.remove('no-scroll');
             });
         });
-        
+
+        // Header scroll effect
+        const header = document.getElementById('header');
+        let lastScroll = 0;
+
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+            
+            if (currentScroll <= 0) {
+                header.classList.remove('header-scrolled');
+                return;
+            }
+            
+            if (currentScroll > 100) {
+                header.classList.add('header-scrolled');
+            } else {
+                header.classList.remove('header-scrolled');
+            }
+            
+            lastScroll = currentScroll;
+        });
+
+        // Scroll progress indicator
+        window.addEventListener('scroll', function() {
+            const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+            const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrollProgress = (scrollTop / scrollHeight) * 100;
+            document.querySelector('.scroll-progress').style.width = scrollProgress + '%';
+        });
+
+        // File upload preview
+        document.getElementById('files').addEventListener('change', function(e) {
+            const preview = document.querySelector('.file-upload-preview');
+            preview.innerHTML = '';
+            
+            Array.from(e.target.files).forEach((file, index) => {
+                const item = document.createElement('div');
+                item.className = 'file-preview-item';
+                item.innerHTML = `
+                    ${file.name} 
+                    <button class="remove-file" data-index="${index}">×</button>
+                `;
+                preview.appendChild(item);
+            });
+        });
+
+        // Remove file from preview
+        document.addEventListener('click', function(e) {
+            if (e.target.classList.contains('remove-file')) {
+                const index = e.target.getAttribute('data-index');
+                const filesInput = document.getElementById('files');
+                const files = Array.from(filesInput.files);
+                
+                files.splice(index, 1);
+                
+                // Create new DataTransfer to update files
+                const dataTransfer = new DataTransfer();
+                files.forEach(file => dataTransfer.items.add(file));
+                filesInput.files = dataTransfer.files;
+                
+                // Update preview
+                const event = new Event('change');
+                filesInput.dispatchEvent(event);
+            }
+        });
+
         // Form submission handling
         document.getElementById('engineering-form').addEventListener('submit', async function(e) {
             e.preventDefault();
@@ -615,7 +1249,12 @@ Start with AI visualization, then let us handle the technical realization. Toget
             const formStatus = document.getElementById('form-status');
             
             submitBtn.disabled = true;
-            submitBtn.textContent = 'Sending...';
+            submitBtn.innerHTML = `
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="animate-spin">
+                    <path d="M12 2V6M12 18V22M6 12H2M22 12H18M19.0784 19.0784L16.25 16.25M19.0784 4.99994L16.25 7.82837M4.92157 19.0784L7.75 16.25M4.92157 4.99994L7.75 7.82837" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                Sending...
+            `;
             formStatus.innerHTML = '';
             
             try {
@@ -626,41 +1265,59 @@ Start with AI visualization, then let us handle the technical realization. Toget
                 });
                 
                 if (response.ok) {
-                    formStatus.innerHTML = '<div class="success-message">Thank you! Your concept has been submitted successfully.</div>';
+                    formStatus.innerHTML = '<div class="success-message">Thank you! Your concept has been submitted successfully. We\'ll get back to you within 2 business days.</div>';
                     form.reset();
+                    document.querySelector('.file-upload-preview').innerHTML = '';
                 } else {
-                    formStatus.innerHTML = '<div class="error-message">Error submitting form. Please try again later.</div>';
+                    formStatus.innerHTML = '<div class="error-message">Error submitting form. Please try again later or contact us directly.</div>';
                 }
             } catch (error) {
-                formStatus.innerHTML = '<div class="error-message">Network error. Please check your connection.</div>';
+                formStatus.innerHTML = '<div class="error-message">Network error. Please check your connection and try again.</div>';
             } finally {
                 submitBtn.disabled = false;
-                submitBtn.textContent = 'Submit for Engineering Review';
+                submitBtn.innerHTML = `
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M22 2L11 13M22 2L15 22L11 13L2 9L22 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    Submit for Engineering Review
+                `;
             }
         });
-        
-        // Make header appear on scroll up
-        let lastScroll = 0;
-        const header = document.querySelector('header');
-        
-        window.addEventListener('scroll', () => {
-            const currentScroll = window.pageYOffset;
-            
-            if (currentScroll <= 0) {
-                header.classList.remove('scroll-up');
-                return;
-            }
-            
-            if (currentScroll > lastScroll && !header.classList.contains('scroll-down')) {
-                header.classList.remove('scroll-up');
-                header.classList.add('scroll-down');
-            } else if (currentScroll < lastScroll && header.classList.contains('scroll-down')) {
-                header.classList.remove('scroll-down');
-                header.classList.add('scroll-up');
-            }
-            
-            lastScroll = currentScroll;
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    
+                    // Update URL without jumping
+                    if (targetId !== '#') {
+                        history.pushState(null, null, targetId);
+                    }
+                }
+            });
         });
+
+        // Add spin animation for loading icon
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes spin {
+                from { transform: rotate(0deg); }
+                to { transform: rotate(360deg); }
+            }
+            .animate-spin {
+                animation: spin 1s linear infinite;
+            }
+        `;
+        document.head.appendChild(style);
     </script>
 </body>
 </html>
