@@ -127,7 +127,7 @@
         
         .ai-tools {
             background-color: white;
-            padding: 1rem;
+            padding: 1.5rem;
             border-radius: 10px;
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
@@ -301,6 +301,13 @@
             resize: vertical;
         }
         
+        .form-group small {
+            display: block;
+            margin-top: 0.3rem;
+            color: var(--gray);
+            font-size: 0.8rem;
+        }
+        
         .submit-btn {
             background-color: var(--accent);
             color: white;
@@ -311,10 +318,29 @@
             font-weight: 600;
             cursor: pointer;
             transition: background-color 0.3s;
+            width: 100%;
         }
         
         .submit-btn:hover {
             background-color: #c0392b;
+        }
+        
+        #form-status {
+            margin-bottom: 1.5rem;
+        }
+        
+        .success-message {
+            background-color: #2ecc71;
+            color: white;
+            padding: 1rem;
+            border-radius: 5px;
+        }
+        
+        .error-message {
+            background-color: #e74c3c;
+            color: white;
+            padding: 1rem;
+            border-radius: 5px;
         }
         
         footer {
@@ -509,7 +535,11 @@
             <h2>Submit Your Concept</h2>
             <p>Upload your AI-developed concept for professional engineering review and refinement</p>
         </div>
-        <form class="contact-form" action="https://formspree.io/f/xeokeqyk" method="POST" enctype="multipart/form-data">
+        <form class="contact-form" action="https://formsubmit.co/abdifx@protonmail.com" method="POST" enctype="multipart/form-data" id="engineering-form">
+            <input type="hidden" name="_subject" value="New Concept Submission from Fikrazen">
+            <input type="hidden" name="_autoresponse" value="Thank you for submitting your concept to Fikrazen! We'll review your submission and get back to you within 2 business days.">
+            <input type="hidden" name="_template" value="box">
+            
             <div class="form-group">
                 <label for="name">Your Name</label>
                 <input type="text" id="name" name="name" required>
@@ -528,7 +558,7 @@
             </div>
             <div class="form-group">
                 <label for="services">Services Needed</label>
-                <select id="services" name="services" multiple>
+                <select id="services" name="services[]" multiple>
                     <option value="concept-review">Concept Review & Verification</option>
                     <option value="technical-drawings">2D Technical Drawings</option>
                     <option value="fem-analysis">FEM Analysis</option>
@@ -536,57 +566,17 @@
                     <option value="patent-help">Patent Assistance</option>
                     <option value="other">Other (describe in message)</option>
                 </select>
+                <small>Hold Ctrl/Cmd to select multiple options</small>
             </div>
             <div class="form-group">
                 <label for="files">Upload Concept Files (Sketches, AI Output, etc.)</label>
-                <input type="file" id="files" name="files" multiple>
+                <input type="file" id="files" name="attachment" accept=".pdf,.jpg,.jpeg,.png,.gif,.doc,.docx">
+                <small>Max 20MB total (PDF, JPG, PNG, GIF, DOC)</small>
             </div>
+            <div id="form-status"></div>
             <button type="submit" class="submit-btn">Submit for Engineering Review</button>
         </form>
     </section>
-    
-    <section id="contact" class="contact">
-    <div class="section-title">
-        <h2>Submit Your Concept</h2>
-        <p>Upload your AI-developed concept for professional engineering review and refinement</p>
-    </div>
-    <form class="contact-form" action="form-handler.php" method="POST" enctype="multipart/form-data" id="engineering-form">
-        <div class="form-group">
-            <label for="name">Your Name</label>
-            <input type="text" id="name" name="name" required>
-        </div>
-        <div class="form-group">
-            <label for="email">Email Address</label>
-            <input type="email" id="email" name="email" required>
-        </div>
-        <div class="form-group">
-            <label for="project">Project Name</label>
-            <input type="text" id="project" name="project" required>
-        </div>
-        <div class="form-group">
-            <label for="description">Concept Description</label>
-            <textarea id="description" name="description" required></textarea>
-        </div>
-        <div class="form-group">
-            <label for="services">Services Needed</label>
-            <select id="services" name="services[]" multiple>
-                <option value="concept-review">Concept Review & Verification</option>
-                <option value="technical-drawings">2D Technical Drawings</option>
-                <option value="fem-analysis">FEM Analysis</option>
-                <option value="prototyping">Prototype Development</option>
-                <option value="patent-help">Patent Assistance</option>
-                <option value="other">Other (describe in message)</option>
-            </select>
-        </div>
-        <div class="form-group">
-            <label for="files">Upload Concept Files (Sketches, AI Output, etc.)</label>
-            <input type="file" id="files" name="files[]" multiple>
-            <small>Max 10MB total, PDF, JPG, PNG, or GIF</small>
-        </div>
-        <div class="form-group" id="form-status"></div>
-        <button type="submit" class="submit-btn">Submit for Engineering Review</button>
-    </form>
-</section>
     
     <footer>
         <div class="footer-content">
@@ -614,18 +604,35 @@
         });
         
         // Form submission handling
-        const form = document.querySelector('.contact-form');
-        form.addEventListener('submit', function(e) {
-            // You can add form validation here
-            // Formspree will handle the actual submission
-            // This is just for UX feedback
+        document.getElementById('engineering-form').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const form = e.target;
             const submitBtn = form.querySelector('.submit-btn');
-            submitBtn.textContent = 'Sending...';
-            submitBtn.disabled = true;
+            const formStatus = document.getElementById('form-status');
             
-            setTimeout(() => {
-                submitBtn.textContent = 'Submitted!';
-            }, 1000);
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Sending...';
+            formStatus.innerHTML = '';
+            
+            try {
+                const formData = new FormData(form);
+                const response = await fetch(form.action, {
+                    method: 'POST',
+                    body: formData
+                });
+                
+                if (response.ok) {
+                    formStatus.innerHTML = '<div class="success-message">Thank you! Your concept has been submitted successfully.</div>';
+                    form.reset();
+                } else {
+                    formStatus.innerHTML = '<div class="error-message">Error submitting form. Please try again later.</div>';
+                }
+            } catch (error) {
+                formStatus.innerHTML = '<div class="error-message">Network error. Please check your connection.</div>';
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Submit for Engineering Review';
+            }
         });
         
         // Make header appear on scroll up
