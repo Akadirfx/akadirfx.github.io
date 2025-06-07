@@ -3,131 +3,610 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mechanical Engineering Consulting Services</title>
+    <title>Fikrazen - From AI Concept to Reality</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --accent: #e74c3c;
+            --light: #ecf0f1;
+            --dark: #2c3e50;
+            --gray: #95a5a6;
+        }
+        
+        * {
             margin: 0;
             padding: 0;
-            color: #333;
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 20px;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
+        
+        body {
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: #f9f9f9;
+        }
+        
         header {
-            text-align: center;
-            padding: 20px 0;
-            border-bottom: 2px solid #eee;
-        }
-        h1 {
-            color: #2c3e50;
-        }
-        .services {
-            margin: 30px 0;
-        }
-        .service-item {
-            margin-bottom: 15px;
-        }
-        .contact-form {
-            background: #f9f9f9;
-            padding: 20px;
-            border-radius: 5px;
-        }
-        .form-group {
-            margin-bottom: 15px;
-        }
-        label {
-            display: block;
-            margin-bottom: 5px;
-            font-weight: bold;
-        }
-        input, textarea {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: fixed;
             width: 100%;
-            padding: 8px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
+            top: 0;
+            z-index: 1000;
         }
-        button {
-            background: #2c3e50;
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+        
+        .logo span {
+            color: var(--accent);
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 2rem;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--secondary);
+        }
+        
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 0 5%;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            margin-top: 80px;
+        }
+        
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            align-items: center;
+        }
+        
+        .hero-text h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+        
+        .hero-text h1 span {
+            color: var(--accent);
+        }
+        
+        .hero-text p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            color: var(--dark);
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background-color: var(--accent);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+        
+        .cta-button:hover {
+            background-color: #c0392b;
+            transform: translateY(-3px);
+        }
+        
+        .ai-tools {
+            background-color: white;
+            padding: 1rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .ai-tools h3 {
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+        
+        .tool-link {
+            display: block;
+            background-color: var(--light);
+            padding: 0.8rem;
+            margin-bottom: 0.5rem;
+            border-radius: 5px;
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: background-color 0.3s;
+        }
+        
+        .tool-link:hover {
+            background-color: #dfe6e9;
+        }
+        
+        section {
+            padding: 5rem 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+        
+        .section-title p {
+            color: var(--gray);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .service-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+        
+        .service-img {
+            height: 200px;
+            background-color: var(--light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: var(--secondary);
+        }
+        
+        .service-content {
+            padding: 1.5rem;
+        }
+        
+        .service-content h3 {
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+        
+        .service-content p {
+            color: var(--gray);
+            margin-bottom: 1.5rem;
+        }
+        
+        .learn-more {
+            display: inline-block;
+            color: var(--secondary);
+            font-weight: 600;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .learn-more:hover {
+            color: #2980b9;
+        }
+        
+        .process-steps {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .step {
+            display: flex;
+            gap: 1.5rem;
+        }
+        
+        .step-number {
+            background-color: var(--secondary);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+        
+        .step-content h3 {
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+        }
+        
+        .step-content p {
+            color: var(--gray);
+        }
+        
+        .contact-form {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: var(--primary);
+        }
+        
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+        
+        .form-group textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        .submit-btn {
+            background-color: var(--accent);
             color: white;
             border: none;
-            padding: 10px 20px;
-            border-radius: 4px;
+            padding: 1rem 2rem;
+            border-radius: 5px;
+            font-size: 1rem;
+            font-weight: 600;
             cursor: pointer;
+            transition: background-color 0.3s;
         }
-        button:hover {
-            background: #1a252f;
+        
+        .submit-btn:hover {
+            background-color: #c0392b;
         }
+        
         footer {
+            background-color: var(--primary);
+            color: white;
+            padding: 3rem 5%;
             text-align: center;
-            margin-top: 30px;
-            padding-top: 20px;
-            border-top: 2px solid #eee;
-            font-size: 0.9em;
-            color: #777;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            margin: 1.5rem 0;
+        }
+        
+        .footer-links li {
+            margin: 0 1rem;
+        }
+        
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: var(--secondary);
+        }
+        
+        .copyright {
+            color: rgba(255,255,255,0.7);
+            margin-top: 1.5rem;
+        }
+        
+        @media (max-width: 768px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
         }
     </style>
 </head>
 <body>
     <header>
-        <h1>Mechanical Engineering</h1>
-        <p>Expert in product research&development</p>
+        <nav>
+            <div class="logo">fikra<span>zen</span></div>
+            <ul class="nav-links">
+                <li><a href="#services">Services</a></li>
+                <li><a href="#process">Process</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
     </header>
-
-    <section class="about">
-        <h2>About My Services</h2>
-        <p>I provide professional mechanical engineering consulting services with many years of experience in [product development].</p>
+    
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>From AI Concept to <span>Real Product</span></h1>
+                <p>Refine your AI-generated ideas with expert mechanical engineering consultation. Save millions by avoiding big engineering firms - get professional verification and refinement at a fraction of the cost.</p>
+                <a href="#contact" class="cta-button">Get Your Concept Reviewed</a>
+            </div>
+            <div class="ai-tools">
+                <h3>Start with these AI tools:</h3>
+                <a href="https://chat.openai.com/" target="_blank" class="tool-link">ChatGPT - Develop your initial concept</a>
+                <a href="https://www.deepseek.com/" target="_blank" class="tool-link">DeepSeek - Explore technical possibilities</a>
+                <p style="margin-top: 1rem; font-size: 0.9rem;">When you're ready, upload your concept below for professional engineering review.</p>
+            </div>
+        </div>
     </section>
-
-    <section class="services">
-        <h2>Services Offered</h2>
-        <div class="service-item">
-            <h3>Mechanical Design</h3>
-            <p>Custom machine design, product development, and CAD modeling.</p>
+    
+    <section id="services" class="services">
+        <div class="section-title">
+            <h2>Our Engineering Services</h2>
+            <p>After developing your concept with AI, we provide the critical engineering expertise to make it reality</p>
         </div>
-        <div class="service-item">
-            <h3>Analysis & Simulation</h3>
-            <p>Finite element analysis (FEA), computational fluid dynamics (CFD), and stress analysis.</p>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-img">📐</div>
+                <div class="service-content">
+                    <h3>Concept Verification</h3>
+                    <p>Professional review of your AI-generated concept to identify potential issues and improvements before prototyping.</p>
+                    <a href="#contact" class="learn-more">Get Started →</a>
+                </div>
+            </div>
+            <div class="service-card">
+                <div class="service-img">✏️</div>
+                <div class="service-content">
+                    <h3>2D Technical Drawings</h3>
+                    <p>Precision engineering drawings for manufacturing with all necessary dimensions and tolerances.</p>
+                    <a href="#contact" class="learn-more">Get Started →</a>
+                </div>
+            </div>
+            <div class="service-card">
+                <div class="service-img">💻</div>
+                <div class="service-content">
+                    <h3>FEM Simulation</h3>
+                    <p>Finite Element Analysis to test your design's strength, durability and performance under various conditions.</p>
+                    <a href="#contact" class="learn-more">Get Started →</a>
+                </div>
+            </div>
+            <div class="service-card">
+                <div class="service-img">🔧</div>
+                <div class="service-content">
+                    <h3>Prototype Development</h3>
+                    <p>Turn your verified concept into a physical prototype with our manufacturing connections.</p>
+                    <a href="#contact" class="learn-more">Get Started →</a>
+                </div>
+            </div>
+            <div class="service-card">
+                <div class="service-img">📝</div>
+                <div class="service-content">
+                    <h3>Patent Assistance</h3>
+                    <p>Guidance through the patent process to protect your innovative product idea.</p>
+                    <a href="#contact" class="learn-more">Get Started →</a>
+                </div>
+            </div>
+            <div class="service-card">
+                <div class="service-img">🚀</div>
+                <div class="service-content">
+                    <h3>Production Preparation</h3>
+                    <p>Prepare your design for mass production with DFM (Design for Manufacturing) analysis.</p>
+                    <a href="#contact" class="learn-more">Get Started →</a>
+                </div>
+            </div>
         </div>
-        <div class="service-item">
-            <h3>Prototyping & Testing</h3>
-            <p>Design validation, prototype development, and performance testing.</p>
-        </div>
-        <div class="service-item">
-            <h3>Technical Documentation</h3>
-            <p>Engineering drawings, technical manuals, and manufacturing specifications.</p>
-        </div>
-        <!-- Add more services as needed -->
     </section>
-
-    <section class="contact">
-        <h2>Request a Consultation</h2>
-        <p>Send me a message to discuss your project requirements:</p>
-        
-        <form class="contact-form" action="https://formspree.io/f/xeokeqyk" method="POST">
+    
+    <section id="process" class="process">
+        <div class="section-title">
+            <h2>How It Works</h2>
+            <p>Our streamlined process bridges the gap between AI concepts and real-world products</p>
+        </div>
+        <div class="process-steps">
+            <div class="step">
+                <div class="step-number">1</div>
+                <div class="step-content">
+                    <h3>Develop Your Concept with AI</h3>
+                    <p>Use ChatGPT, DeepSeek or other AI tools to flesh out your initial product idea. These tools can help with brainstorming, technical questions, and initial design concepts.</p>
+                </div>
+            </div>
+            <div class="step">
+                <div class="step-number">2</div>
+                <div class="step-content">
+                    <h3>Submit Your Concept</h3>
+                    <p>Upload your AI-generated concept, sketches, or descriptions through our form. Include as much detail as possible about your vision and requirements.</p>
+                </div>
+            </div>
+            <div class="step">
+                <div class="step-number">3</div>
+                <div class="step-content">
+                    <h3>Engineering Review</h3>
+                    <p>We analyze your concept for feasibility, identify potential issues, and suggest improvements. You'll receive a detailed report with recommendations.</p>
+                </div>
+            </div>
+            <div class="step">
+                <div class="step-number">4</div>
+                <div class="step-content">
+                    <h3>Refinement & Development</h3>
+                    <p>Based on the review, we work with you to refine the design, create technical drawings, run simulations, or develop prototypes as needed.</p>
+                </div>
+            </div>
+            <div class="step">
+                <div class="step-number">5</div>
+                <div class="step-content">
+                    <h3>Finalize & Protect</h3>
+                    <p>Prepare your product for manufacturing and get assistance with patent applications to protect your intellectual property.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="contact" class="contact">
+        <div class="section-title">
+            <h2>Submit Your Concept</h2>
+            <p>Upload your AI-developed concept for professional engineering review and refinement</p>
+        </div>
+        <form class="contact-form" action="https://formspree.io/f/xeokeqyk" method="POST" enctype="multipart/form-data">
             <div class="form-group">
-                <label for="name">Name:</label>
+                <label for="name">Your Name</label>
                 <input type="text" id="name" name="name" required>
             </div>
             <div class="form-group">
-                <label for="email">Email:</label>
+                <label for="email">Email Address</label>
                 <input type="email" id="email" name="email" required>
             </div>
             <div class="form-group">
-                <label for="subject">Subject:</label>
-                <input type="text" id="subject" name="subject" required>
+                <label for="project">Project Name</label>
+                <input type="text" id="project" name="project" required>
             </div>
             <div class="form-group">
-                <label for="message">Message:</label>
-                <textarea id="message" name="message" rows="5" required></textarea>
+                <label for="description">Concept Description</label>
+                <textarea id="description" name="description" required></textarea>
             </div>
-            <button type="submit">Send Message</button>
+            <div class="form-group">
+                <label for="services">Services Needed</label>
+                <select id="services" name="services" multiple>
+                    <option value="concept-review">Concept Review & Verification</option>
+                    <option value="technical-drawings">2D Technical Drawings</option>
+                    <option value="fem-analysis">FEM Analysis</option>
+                    <option value="prototyping">Prototype Development</option>
+                    <option value="patent-help">Patent Assistance</option>
+                    <option value="other">Other (describe in message)</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="files">Upload Concept Files (Sketches, AI Output, etc.)</label>
+                <input type="file" id="files" name="files" multiple>
+            </div>
+            <button type="submit" class="submit-btn">Submit for Engineering Review</button>
         </form>
     </section>
-
+    
     <footer>
-        <p>&copy; 2023 Mechanical Engineering Consulting. All rights reserved.</p>
+        <div class="footer-content">
+            <div class="logo" style="color: white;">fikra<span style="color: var(--secondary);">zen</span></div>
+            <ul class="footer-links">
+                <li><a href="#services">Services</a></li>
+                <li><a href="#process">Process</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#">Privacy Policy</a></li>
+            </ul>
+            <p class="copyright">© 2023 Fikrazen. All rights reserved. Bridging AI concepts with engineering reality.</p>
+        </div>
     </footer>
+    
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // Form submission handling
+        const form = document.querySelector('.contact-form');
+        form.addEventListener('submit', function(e) {
+            // You can add form validation here
+            // Formspree will handle the actual submission
+            // This is just for UX feedback
+            const submitBtn = form.querySelector('.submit-btn');
+            submitBtn.textContent = 'Sending...';
+            submitBtn.disabled = true;
+            
+            setTimeout(() => {
+                submitBtn.textContent = 'Submitted!';
+            }, 1000);
+        });
+        
+        // Make header appear on scroll up
+        let lastScroll = 0;
+        const header = document.querySelector('header');
+        
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+            
+            if (currentScroll <= 0) {
+                header.classList.remove('scroll-up');
+                return;
+            }
+            
+            if (currentScroll > lastScroll && !header.classList.contains('scroll-down')) {
+                header.classList.remove('scroll-up');
+                header.classList.add('scroll-down');
+            } else if (currentScroll < lastScroll && header.classList.contains('scroll-down')) {
+                header.classList.remove('scroll-down');
+                header.classList.add('scroll-up');
+            }
+            
+            lastScroll = currentScroll;
+        });
+    </script>
 </body>
 </html>
