@@ -545,6 +545,49 @@
         </form>
     </section>
     
+    <section id="contact" class="contact">
+    <div class="section-title">
+        <h2>Submit Your Concept</h2>
+        <p>Upload your AI-developed concept for professional engineering review and refinement</p>
+    </div>
+    <form class="contact-form" action="form-handler.php" method="POST" enctype="multipart/form-data" id="engineering-form">
+        <div class="form-group">
+            <label for="name">Your Name</label>
+            <input type="text" id="name" name="name" required>
+        </div>
+        <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" required>
+        </div>
+        <div class="form-group">
+            <label for="project">Project Name</label>
+            <input type="text" id="project" name="project" required>
+        </div>
+        <div class="form-group">
+            <label for="description">Concept Description</label>
+            <textarea id="description" name="description" required></textarea>
+        </div>
+        <div class="form-group">
+            <label for="services">Services Needed</label>
+            <select id="services" name="services[]" multiple>
+                <option value="concept-review">Concept Review & Verification</option>
+                <option value="technical-drawings">2D Technical Drawings</option>
+                <option value="fem-analysis">FEM Analysis</option>
+                <option value="prototyping">Prototype Development</option>
+                <option value="patent-help">Patent Assistance</option>
+                <option value="other">Other (describe in message)</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="files">Upload Concept Files (Sketches, AI Output, etc.)</label>
+            <input type="file" id="files" name="files[]" multiple>
+            <small>Max 10MB total, PDF, JPG, PNG, or GIF</small>
+        </div>
+        <div class="form-group" id="form-status"></div>
+        <button type="submit" class="submit-btn">Submit for Engineering Review</button>
+    </form>
+</section>
+    
     <footer>
         <div class="footer-content">
             <div class="logo" style="color: white;">fikra<span style="color: var(--secondary);">zen</span></div>
