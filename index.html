@@ -4,131 +4,229 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>FikraZen | Engineering + Elegance</title>
+  <meta name="description" content="FikraZen transforms your ideas into engineered products with speed, quality, and value. Concept to prototype to production-ready solutions." />
+  <meta name="keywords" content="engineering, CAD, prototyping, manufacturing, concept design, product development" />
+  <meta name="author" content="FikraZen Team" />
   <link rel="stylesheet" href="uploads/style.css" />
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-X1TL827847"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-X1TL827847', { 'anonymize_ip': true });
+  </script>
 </head>
 <body>
-  <header>
-    <nav>
-      <ul>
-        <li><a href="#introduction">Introduction</a></li>
-        <li><a href="#how-it-works">How It Works</a></li>
-        <li><a href="#services">Services</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
-    <h1><span class="fikra">Fikra</span><span class="zen">Zen</span></h1>
-    <p class="tagline">Where Ideas Find Their Calm</p>
+
+  <!-- Header -->
+  <header id="site-header">
+    <div class="header-content">
+      <h1><span class="fikra">Fikra</span><span class="zen">Zen</span></h1>
+      <div class="header-buttons">
+        <button id="get-started-btn">Get Started</button>
+        <div class="header-icons">
+          <div class="icon-divider"></div>
+          <button class="icon-button" id="menu-btn" aria-label="Menu">☰</button>
+        </div>
+      </div>
+    </div>
   </header>
 
+  <!-- Main Content -->
   <main>
+    <!-- Introduction Section -->
     <section id="introduction">
-      <canvas id="introduction-canvas"></canvas>
+      <canvas id="introduction-canvas" aria-hidden="true"></canvas>
       <div class="content">
-        <h2>From AI Concept to Real Product</h2>
+        <h2>Seamlessly Blending Vision with Precision Engineering</h2>
         <p>
-          At FikraZen, we transform your vision into engineered products at record speed. By integrating advanced AI tools with traditional engineering expertise, we achieve unprecedented productivity gains — increasing output by over 1000 times — enabling efficient, cost-effective product development that bridges the gap between creativity and real-world application.
+          FikraZen transforms your ideas—sketches, photos, or AI prompts—into fully engineered products, delivered with exceptional speed, quality, and value.
         </p>
       </div>
     </section>
 
+    <!-- How It Works -->
     <section id="how-it-works">
       <div class="content">
         <h2>How It Works</h2>
-        <p class="description">
-          Our streamlined process bridges the gap between AI concepts and real-world products.
+        <p class="how-description">
+          No matter your format—sketch, photo, AI prompt—start with AI, and we'll bring it to life.
         </p>
-        <ol>
-          <li><strong>1. Develop Your Concept with AI:</strong> Use ChatGPT, DeepSeek, or other AI tools to flesh out your initial product idea.</li>
-          <li><strong>2. Submit Your Concept:</strong> Upload your AI-generated concept, sketches, or descriptions through our form.</li>
-          <li><strong>3. Engineering Review:</strong> We analyze your concept for feasibility and suggest improvements.</li>
-          <li><strong>4. Refinement & Development:</strong> We refine the design, create technical drawings, or develop prototypes.</li>
-          <li><strong>5. Finalize & Protect:</strong> We help prepare your product for manufacturing and assist with patents.</li>
-        </ol>
+        <div class="steps-grid">
+          <div class="step">
+            <div class="step-number">1</div>
+            <h3>Start with AI</h3>
+            <p>Describe your idea in detail using ChatGPT or other AI tools—so we can fully understand your vision.</p>
+          </div>
+          <div class="step">
+            <div class="step-number">2</div>
+            <h3>Upload</h3>
+            <p>Upload your description, sketches, photos, or reference materials, and we’ll review and get back to you promptly.</p>
+          </div>
+          <div class="step">
+            <div class="step-number">3</div>
+            <h3>Engineering & Prototype</h3>
+            <p>We design, engineer, simulate, and prototype your concept—ensuring it’s fully production-ready.</p>
+          </div>
+          <div class="step">
+            <div class="step-number">4</div>
+            <h3>Launch Ready</h3>
+            <p>We deliver final drawings, prepare for manufacturing, and provide patent assistance—so you’re ready to launch.</p>
+          </div>
+        </div>
       </div>
     </section>
 
+    <!-- Why Choose FikraZen -->
+    <section id="why-choose">
+      <div class="content">
+        <h2>Why Choose FikraZen?</h2>
+        <p>
+          At FikraZen, we bring together a team of passionate engineers and designers with a shared vision: transforming ideas into real-world solutions. We combine creativity and precision to deliver innovative, manufacturable products with speed and efficiency. Whether you’re a startup or an established brand, our focus is on making your vision a reality.
+        </p>
+      </div>
+    </section>
+
+    <!-- About Us -->
+    <section id="about-us">
+      <div class="content">
+        <h2>About Us</h2>
+        <p>
+          FikraZen was founded by a team of engineers and designers with a passion for transforming ideas into real-world products. With expertise in mechanical engineering, CAD, and rapid prototyping, we help bring your vision to life from concept to production. Our mission is to provide innovative, manufacturable solutions that empower creators, entrepreneurs, and businesses to thrive.
+        </p>
+      </div>
+    </section>
+
+    <!-- Services -->
     <section id="services">
-      <h2>Our Services</h2>
-      <div class="service-grid">
-        <div class="service">
-          <h3>Concept Verification</h3>
-          <div class="image" style="background-image: url('uploads/conceptverification.jpg');"></div>
-          <div class="description">
-            Professional review of your AI-generated concept to identify issues and improvements before prototyping.
+      <div class="content">
+        <h2>Our Services</h2>
+        <div class="service-grid">
+          <div class="service">
+            <h3>Concept Verification</h3>
+            <div class="image" style="background-image:url('uploads/conceptverification.jpg')" aria-label="Concept Verification"></div>
+            <div class="description">
+              Ensure your concept is optimized and ready for prototyping, with a detailed professional review.
+            </div>
           </div>
-        </div>
-        <div class="service">
-          <h3>2D Technical Drawings</h3>
-          <div class="image" style="background-image: url('uploads/2dtechnicaldrawings.jpg');"></div>
-          <div class="description">
-            Precision engineering drawings with dimensions and tolerances for manufacturing.
+          <div class="service">
+            <h3>3D CAD & 2D Blueprints</h3>
+            <div class="image" style="background-image:url('uploads/2dtechnicaldrawings.jpg')" aria-label="3D CAD Design"></div>
+            <div class="description">
+              Precision 3D CAD models and 2D blueprints for seamless manufacturing.
+            </div>
           </div>
-        </div>
-        <div class="service">
-          <h3>FEM Simulation</h3>
-          <div class="image" style="background-image: url('uploads/femsimulation.jpg');"></div>
-          <div class="description">
-            Finite Element Analysis for strength, durability, and performance under various conditions.
+          <div class="service">
+            <h3>FEM Simulation</h3>
+            <div class="image" style="background-image:url('uploads/femsimulation.jpg')" aria-label="FEM Simulation"></div>
+            <div class="description">
+              Thorough structural and performance analysis to ensure product reliability.
+            </div>
           </div>
-        </div>
-        <div class="service">
-          <h3>Prototype Development</h3>
-          <div class="image" style="background-image: url('uploads/prototypedevelopment.jpg');"></div>
-          <div class="description">
-            From concept to physical prototype, ensuring functionality and manufacturability.
+          <div class="service">
+            <h3>Prototype Development</h3>
+            <div class="image" style="background-image:url('uploads/prototypedevelopment.jpg')" aria-label="Prototype Development"></div>
+            <div class="description">
+              Functional prototypes built and tested to meet your design goals.
+            </div>
           </div>
-        </div>
-        <div class="service">
-          <h3>Patent Assistance</h3>
-          <div class="image" style="background-image: url('uploads/patentassistance.jpg');"></div>
-          <div class="description">
-            Guidance through the patent process to secure your intellectual property.
+          <div class="service">
+            <h3>Patent Assistance</h3>
+            <div class="image" style="background-image:url('uploads/patentassistance.jpg')" aria-label="Patent Assistance"></div>
+            <div class="description">
+              Guidance and support through the patent filing and protection process.
+            </div>
           </div>
-        </div>
-        <div class="service">
-          <h3>Production Preparation</h3>
-          <div class="image" style="background-image: url('uploads/productionpreparation.jpg');"></div>
-          <div class="description">
-            DFM (Design for Manufacturing) analysis to get your product ready for mass production.
+          <div class="service">
+            <h3>Production Preparation</h3>
+            <div class="image" style="background-image:url('uploads/productionpreparation.jpg')" aria-label="Production Preparation"></div>
+            <div class="description">
+              Design-for-manufacturing analysis that ensures smooth transition to mass production.
+            </div>
           </div>
         </div>
       </div>
-    </section>
-
-    <section id="contact">
-      <h2>Contact Us</h2>
-      <form action="https://formsubmit.co/abdifx@protonmail.com" method="POST" enctype="multipart/form-data">
-        <input type="hidden" name="_captcha" value="false">
-        <input type="hidden" name="_subject" value="New FikraZen Inquiry">
-        <label for="name">Name</label>
-        <input type="text" id="name" name="name" required>
-        <label for="email">Email</label>
-        <input type="email" id="email" name="email" required>
-        <label for="message">Message</label>
-        <textarea id="message" name="message" rows="5" required></textarea>
-        <label for="attachment">Attachment (optional)</label>
-        <input type="file" id="attachment" name="attachment">
-        <button type="submit">Send Message</button>
-      </form>
     </section>
   </main>
 
+  <!-- Modal Contact Form -->
+  <div id="modal" class="modal" aria-modal="true" role="dialog" aria-labelledby="modal-title">
+    <div class="modal-content">
+      <span class="close-btn" aria-label="Close modal">&times;</span>
+      <h2 id="modal-title">Get Started</h2>
+      <form action="https://formsubmit.co/abdifx@protonmail.com" method="POST" enctype="multipart/form-data">
+        <input type="text" name="first_name" placeholder="First Name*" required />
+        <input type="text" name="last_name" placeholder="Last Name*" required />
+        <input type="email" name="email" placeholder="Business Email Address*" required />
+        <input type="tel" name="phone" placeholder="Phone Number" />
+        <input type="text" name="job_title" placeholder="Job Title" />
+        <input type="text" name="company" placeholder="Company/Institution" />
+        <select name="country" required>
+          <option value="">Select Your Country*</option>
+          <option value="United States">United States</option>
+          <option value="United Kingdom">United Kingdom</option>
+          <option value="Canada">Canada</option>
+          <option value="Australia">Australia</option>
+          <option value="Germany">Germany</option>
+          <option value="France">France</option>
+          <option value="Other">Other</option>
+        </select>
+        <textarea name="project_description" rows="4" placeholder="Tell us about your project..." required></textarea>
+        <label class="file-upload">
+          Upload File
+          <input type="file" name="attachment" hidden>
+        </label>
+        <input type="text" name="_honey" style="display:none">
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Info Modal -->
+<div id="info-modal" class="modal" aria-modal="true" role="dialog" aria-labelledby="info-title">
+  <div class="modal-content">
+    <span class="close-btn" aria-label="Close modal">&times;</span>
+    <h2 id="info-title">Why Choose FikraZen?</h2>
+    <p>
+      At FikraZen, we bring together a team of passionate engineers and designers with a shared vision: transforming ideas into real-world solutions. We combine creativity and precision to deliver innovative, manufacturable products with speed and efficiency. Whether you’re a startup or an established brand, our focus is on making your vision a reality.
+    </p>
+
+    <h2>About Us</h2>
+    <p>
+      FikraZen was founded by a team of engineers and designers with a passion for transforming ideas into real-world products. With expertise in mechanical engineering, CAD, and rapid prototyping, we help bring your vision to life from concept to production. Our mission is to provide innovative, manufacturable solutions that empower creators, entrepreneurs, and businesses to thrive.
+    </p>
+  </div>
+</div>
+
+  <!-- Footer -->
   <footer>
     <p>&copy; 2025 FikraZen. All rights reserved.</p>
+    <p>Contact: <a href="mailto:abdifx@protonmail.com">abdifx@protonmail.com</a></p>
+    <p>Phone: +1 (555) 123-4567</p>
+    <p><a href="privacy.html">Privacy Policy</a></p>
   </footer>
 
+  <!-- JavaScript -->
   <script>
+    // Canvas Animation
     const canvas = document.getElementById('introduction-canvas');
     const ctx = canvas.getContext('2d');
     const nodes = [];
     const nodeCount = 25;
-    const maxConnectionDistance = 200;
+    const maxDist = 200;
 
     function resizeCanvas() {
       canvas.width = window.innerWidth;
       canvas.height = document.getElementById('introduction').offsetHeight;
     }
-    window.addEventListener('resize', resizeCanvas);
+
+    window.addEventListener('resize', () => {
+      clearTimeout(resizeTimeout);
+      resizeTimeout = setTimeout(resizeCanvas, 100);
+    });
+
+    let resizeTimeout;
     resizeCanvas();
 
     for (let i = 0; i < nodeCount; i++) {
@@ -142,16 +240,13 @@
 
     function animate() {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-      // Draw connections
       for (let i = 0; i < nodes.length; i++) {
         for (let j = i + 1; j < nodes.length; j++) {
           const dx = nodes[i].x - nodes[j].x;
           const dy = nodes[i].y - nodes[j].y;
           const dist = Math.sqrt(dx * dx + dy * dy);
-          if (dist < maxConnectionDistance) {
-            ctx.strokeStyle = `rgba(255, 255, 255, ${1 - dist / maxConnectionDistance})`;
-            ctx.lineWidth = 1;
+          if (dist < maxDist) {
+            ctx.strokeStyle = `rgba(192,57,46,${1 - dist/maxDist})`;
             ctx.beginPath();
             ctx.moveTo(nodes[i].x, nodes[i].y);
             ctx.lineTo(nodes[j].x, nodes[j].y);
@@ -159,25 +254,42 @@
           }
         }
       }
-
-      // Draw nodes
-      for (let node of nodes) {
-        ctx.beginPath();
-        ctx.arc(node.x, node.y, 2, 0, Math.PI * 2);
-        ctx.fillStyle = '#ffffff';
-        ctx.fill();
-
+      nodes.forEach(node => {
         node.x += node.vx;
         node.y += node.vy;
-
         if (node.x < 0 || node.x > canvas.width) node.vx *= -1;
         if (node.y < 0 || node.y > canvas.height) node.vy *= -1;
-      }
-
+        ctx.beginPath();
+        ctx.arc(node.x, node.y, 2, 0, 2 * Math.PI);
+        ctx.fillStyle = '#c0392b';
+        ctx.fill();
+      });
       requestAnimationFrame(animate);
     }
 
     animate();
+
+    // Modal Script
+    const modal = document.getElementById('modal');
+const infoModal = document.getElementById('info-modal');
+const getStartedBtn = document.getElementById('get-started-btn');
+const menuBtn = document.getElementById('menu-btn');
+const closeButtons = document.querySelectorAll('.close-btn');
+
+getStartedBtn.addEventListener('click', () => modal.style.display = 'block');
+menuBtn.addEventListener('click', () => infoModal.style.display = 'block');
+
+closeButtons.forEach(btn => {
+  btn.addEventListener('click', () => {
+    modal.style.display = 'none';
+    infoModal.style.display = 'none';
+  });
+});
+
+window.addEventListener('click', e => {
+  if (e.target === modal) modal.style.display = 'none';
+  if (e.target === infoModal) infoModal.style.display = 'none';
+});
   </script>
 </body>
 </html>
