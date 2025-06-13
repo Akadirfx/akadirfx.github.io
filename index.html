@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>FikraZen | Engineering + Elegance</title>
+  <meta name="description" content="FikraZen transforms your ideas into engineered products with speed, quality, and value." />
+
+  <!-- Schema.org Structured Data -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org", 
+      "@type": "Organization",
+      "name": "FikraZen",
+      "url": "https://fikrazen.com", 
+      "logo": "https://fikrazen.com/uploads/logo.png", 
+      "description": "Transforming ideas into engineered products with speed, quality, and value.",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "email": "info@fikrazen.com",
+        "contactType": "customer service"
+      }
+    }
+  </script>
+
+  <!-- Fonts & CSS -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="uploads/style.css" />
+</head>
+<body>
+  <!-- Skip to Content Link -->
+  <a href="#introduction" class="skip-link">Skip to content</a>  
+
+  <!-- Header -->
+  <header id="site-header">
+    <div class="header-content">
+      <h1 id="logo-title">
+        <svg class="info-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" role="button" aria-label="About FikraZen">
+          <circle cx="12" cy="12" r="10" stroke="var(--primary)" stroke-width="2" fill="none"/>
+          <text x="12" y="17" text-anchor="middle" font-size="14" fill="var(--primary)" font-family="Arial, sans-serif">i</text>
+        </svg>
+        <span class="fikra">Fikra</span><span class="zen">Zen</span>
+      </h1>
+      <div class="header-buttons">
+        <button id="get-started-btn">Get Started</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main id="main-content">
+
+    <!-- Introduction Section -->
+    <section id="introduction">
+      <div class="bg-overlay"></div>
+      <canvas id="introduction-canvas" aria-hidden="true"></canvas>
+      <div class="content">  
+        <h2>We deploy AI to deliver precision, speed, and innovation on demand.</h2>
+        <p>
+Our AI-powered approach eliminates guesswork, optimizes designs, and predicts outcomes—transforming product development from a bottleneck into your competitive advantage. Whether you're a startup scaling fast or an enterprise innovating under pressure, we help you launch smarter, not slower.
+        </p>
+      </div>
+    </section>
+
+    <!-- How It Works -->
+    <section id="how-it-works">
+      <div class="content">
+        <h2>Process</h2>
+        
+        <div class="timeline">
+          <div class="timeline-item left">
+            <div class="timeline-icon">1</div>
+            <div class="timeline-content">
+              <h3> Explain your idea using AI.</h3>
+              <p> With AI's ability to analyze and process vast amounts of stored information, designers could be assisted by AI to make informed decisions.</p>
+            </div>
+          </div>
+          <div class="timeline-item right">
+            <div class="timeline-icon">2</div>
+            <div class="timeline-content">
+              <h3>Submit Files</h3>
+              <p>Send your notes, visuals, or concepts — and we’ll review. We reply fast + Pricing Proposal. </p>
+            </div>
+          </div>
+          <div class="timeline-item left">
+            <div class="timeline-icon">3</div>
+            <div class="timeline-content">
+              <h3>Design & Prototype</h3>
+              <p>AI tools are being used generating, evaluating, and optimizing design alternatives, then We engineer your idea into a tested prototype — ready for real-world use.</p>
+            </div>
+          </div>
+          <div class="timeline-item right">
+            <div class="timeline-icon">4</div>
+            <div class="timeline-content">
+              <h3> Refining the product.</h3>
+              <p>Receive final designs and production specs so you can launch with confidence.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services Tabs -->
+    <section id="services">
+      <div class="content">
+        <h2>How we can help</h2>
+        <p class="section-description">
+          Explore our full range of engineering services below. Select a category to learn more.
+        </p>
+        <!-- Tab Navigation -->
+        <nav aria-label="Service Navigation">
+          <div class="tab-nav">
+            <button class="tab-link active" data-tab="concept">Concept Verification</button>
+            <button class="tab-link" data-tab="cad">3D CAD & 2D Blueprints</button>
+            <button class="tab-link" data-tab="fem">FEM Simulation</button>
+            <button class="tab-link" data-tab="prototype">Quality control</button>
+            <button class="tab-link" data-tab="patent">Patent Assistance</button>
+            <button class="tab-link" data-tab="production">Production Preparation</button>
+          </div>
+        </nav>
+        <!-- Tab Content -->
+        <div class="tab-content active" id="concept">
+          <h3>Concept Verification</h3>
+          <img src="uploads/conceptverification.webp" alt="Engineer reviewing mechanical concept design with annotations" class="tab-image" loading="lazy">
+          <p>Ensure your concept is optimized and ready for prototyping, with a detailed professional review.</p>
+        </div>
+        <div class="tab-content" id="cad">
+          <h3>3D CAD & 2D Blueprints</h3>
+          <img src="uploads/2dtechnicaldrawings.webp" alt="Precision 3D CAD models and 2D blueprints" class="tab-image" loading="lazy">
+          <p>Precision 3D CAD models and 2D blueprints for seamless manufacturing.</p>
+        </div>
+        <div class="tab-content" id="fem">
+          <h3>FEM Simulation</h3>
+          <img src="uploads/femsimulation.webp" alt="Structural analysis using finite element method" class="tab-image" loading="lazy">
+          <p>Thorough structural and performance analysis to ensure product reliability.</p>
+        </div>
+        <div class="tab-content" id="prototype">
+          <h3>Quality control </h3>
+          <img src="uploads/prototypedevelopment.webp" alt="Functional prototypes built and tested" class="tab-image" loading="lazy">
+          <p>Prototype quality checks involve a series of rigorous processes to ensure that the final product meets the required specifications and standards. Functional prototypes built and tested to meet your design goals.</p>
+        </div>
+        <div class="tab-content" id="patent">
+          <h3>Patent Assistance</h3>
+          <img src="uploads/patentassistance.webp" alt="Guidance through patent filing and protection" class="tab-image" loading="lazy">
+          <p>Guidance and support through the patent filing and protection process.</p>
+        </div>
+        <div class="tab-content" id="production">
+          <h3>Production Preparation</h3>
+          <img src="uploads/productionpreparation.webp" alt="Preparing product for mass manufacturing" class="tab-image" loading="lazy">
+          <p>Design-for-manufacturing analysis that ensures smooth transition to mass production.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Modal Contact Form -->
+<div id="modal" class="modal" aria-modal="true" role="dialog" aria-labelledby="modal-title">
+  <div class="modal-content">
+    <span class="close-btn" aria-label="Close modal">&times;</span>
+    <h2 id="modal-title">Get Started</h2>
+    <form action="https://formsubmit.co/63bdb2bf31bad9ace943b692f8db7c18"  method="POST" enctype="multipart/form-data">
+      <input type="text" name="first_name" placeholder="First Name*" required />
+      <input type="text" name="last_name" placeholder="Last Name*" required />
+      <input type="email" name="email" placeholder="Business Email Address*" required />
+      <input type="tel" name="phone" placeholder="Phone Number" />
+      <input type="text" name="job_title" placeholder="Job Title" />
+      <input type="text" name="company" placeholder="Company/Institution" />
+      <select name="country" required>
+        <option value="">Select Your Country*</option>
+        <option value="United States">United States</option>
+        <option value="United Kingdom">United Kingdom</option>
+        <option value="Canada">Canada</option>
+        <option value="Australia">Australia</option>
+        <option value="Germany">Germany</option>
+        <option value="France">France</option>
+        <option value="Other">Other</option>
+      </select>
+      <textarea name="project_description" rows="4" placeholder="Tell us about your project..." required></textarea>
+      <label class="file-upload">
+        Upload File
+        <input type="file" name="attachment" hidden />
+      </label>
+      <input type="hidden" name="_honey">
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+</div>
+
+    <!-- Info Modal -->
+    <div id="info-modal" class="modal" aria-modal="true" role="dialog" aria-labelledby="info-title">
+      <div class="modal-content">
+        <span class="close-btn" aria-label="Close modal">&times;</span>
+        <h2 id="info-title">20+ Years of Engineering Expertise—Now Supercharged by AI</h2>
+        <p>About FikraZen</p>
+<p>Engineering Intelligence, Accelerated</p>
+<p>Who We Are</p>
+<p>FikraZen is a London-based mechanical engineering consultancy on a mission to empower innovators—entrepreneurs, startups, and businesses—by merging decades of hands-on expertise with cutting-edge AI-driven product development.</p>
+<p>Our Story</p><p></p>As a mechanical engineer with 20+ years of experience, I’ve witnessed firsthand how traditional product development bogs down brilliant ideas: endless iterations, costly delays, and missed opportunities. But today, we rewrite that story.By integrating AI-powered design, simulation, and predictive analytics into our practice, we now achieve in days what once took years—delivering smarter, faster, and more reliable solutions without sacrificing real-world practicality.
+<p>Why Work With Us?</p>
+<p>Speed Without Compromise: Leverage AI to slash development time while relying on battle-tested engineering rigor.
+
+From Napkin Sketch to Market Ready: We specialize in turning raw ideas into manufacturable, high-performance products.
+</p>
+<p>Your Competitive Edge: Our hybrid approach (human expertise + AI precision) means fewer risks, lower costs, and faster time-to-revenue.</p>
+
+
+<p>Our Mission</p>
+<p>To democratize advanced engineering—making it accessible, agile, and outcome-focused for creators and businesses tackling tomorrow’s challenges.
+
+Let’s build the future faster.</p>
+
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 FikraZen. All rights reserved.</p>
+    <p>Contact: <a href="mailto:info@fikrazen.com">Email Us</a></p>
+    <p><a href="#">Privacy Policy</a></p>
+  </footer>
+
+  <!-- JavaScript -->
+  <script src="uploads/script.js"></script>
+</body>
+</html>
